@@ -4,16 +4,16 @@
 #include "../includes/exit.h"
 #include "../includes/libft.h"
 
-void				get_nb_of_ants(char **aline, int *anb_of_ants)
+void	get_nb_of_ants(char **aline, int *anb_of_ants)
 {
 	get_print_next_line (0, aline);
-	if (!(*aline))
-		exit_msg ((char*)("ERROR"), 5);
+	if (!(write (1, "\n", 1)) || !(*aline))
+			exit_msg ((char*)("ERROR"), 5);
 	while ((*aline)[0] == '#')
 	{
 		free (*aline);
 		get_print_next_line (0, aline);
-		if (!(*aline))
+		if (!(write (1, "\n", 1)) || !(*aline))
 			exit_msg ((char*)("ERROR"), 5);
 	}
 	(*anb_of_ants) = ft_atoi (*aline);

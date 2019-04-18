@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include "../includes/struct.h"
 #include "../includes/exit.h"
-	#include <stdio.h>
 
 static int	lon_lenght (t_neighbour *path)
 {
@@ -27,13 +26,11 @@ static int	fill_nei_for_lop (t_tree_of_paths *leaf, t_neighbour *path)
 		if (!(temp->next = (t_neighbour*)malloc (sizeof(t_neighbour))))
 			return (0);
 		temp->room = leaf->room;
-//printf (" - %s",temp->room->name);
 		temp = temp->next;
 		leaf = leaf->parent;
 	}
 	temp->next = NULL;
 	temp->room = NULL;
-//printf ("\n");
 	return (1);
 }
 
@@ -55,12 +52,9 @@ int			add_1path (t_list_of_paths **alist, t_tree_of_paths *leaf)
 		free (new);
 		return (1);
 	}
-//printf ("completing new\n");
 	new->path = path;
 	new->lenght = lon_lenght(path);
-//printf ("     lenght : %d\n", new->lenght);
 	new->next = NULL;
-//printf ("new completed\n");	
 	temp = *alist;
 	while (temp->next)
 		temp = temp->next;

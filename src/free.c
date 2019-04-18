@@ -1,7 +1,6 @@
 #include "../includes/struct.h"
 #include "../includes/get.h"
 #include <stdlib.h>
-	#include <stdio.h>
 
 void	free_neighbour (t_neighbour *nei)
 {
@@ -42,8 +41,6 @@ void	free_test (t_test_paths *test)
 	while (test)
 	{
 		temp = test;
-//		free_lop (temp->lop, 0);
-//		temp->lop = NULL;
 		test = test->next;
 		free (temp);
 	}
@@ -91,16 +88,10 @@ void	free_tree (t_sorttree *tree)
 				free_tree (tree->next[i]);
 		}
 		free ((tree->cont).room_name);
-//printf ("free name in tree\n");
-//		free (((tree->cont).data)->name);
-//printf ("free name in t_room of tree\n");
-// it's the same'
 		if ((tree->cont).sroom)
 			free_neighbour (((tree->cont).sroom)->neighbour);
 		free ((tree->cont).sroom);
-//printf ("free t_room of tree\n");
 		free (tree);
-//printf ("free tree\n");
 	}
 }
 

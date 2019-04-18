@@ -1,7 +1,6 @@
 #include "../includes/libft.h"
 #include "../includes/struct.h"
 #include "../includes/get.h"
-	#include <stdio.h>
 
 int		is_tunnel(char *line, t_sorttree *tree)
 {
@@ -14,18 +13,14 @@ int		is_tunnel(char *line, t_sorttree *tree)
 		return (1);
 	while (--pos > 0 && line[pos] != '-');
 	if (pos < 1)
-{printf ("pos: %d line: %s, tunnel not found\n", pos, line);
-	return (0);
-}
+		return (0);
 	line[pos] = 0;
 	if (find_room(tree, line, pos)
 		&& find_room(tree, line + pos + 1, lenght - pos - 1))
 	{
-printf ("tunnel from %s to %s\n",(find_room(tree, line, pos))->name, (find_room(tree, line + pos + 1, lenght - pos - 1))->name);
 		line[pos] = '-';
 		return (1);
 	}
-printf ("line: %s, room not found\n", line);
 	return (0);
 }
 

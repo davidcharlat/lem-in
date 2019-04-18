@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <unistd.h>
+#include "../includes/exit.h"
+#include "../includes/libft.h"
 #include "../includes/get_next_line.h"
 
 static t_read		*ft_freeread(t_read *red, t_read *prev, t_read **start)
@@ -121,7 +123,6 @@ int					get_print_next_line(int fd, char **line)
 	tab[1] = (tab[3]);
 	temp[0] = ft_findendl(fd, tab[2]);
 	temp[1] = (ft_print(temp[0], tab, &start, line));
-	write (1, *line, temp[0]);
-	write (1, "\n", 1);
-	return (temp[1]);	
+	ft_putstr (*line);
+	return (temp[1]);
 }

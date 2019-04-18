@@ -3,7 +3,6 @@
 #include "../includes/struct.h"
 #include "../includes/get.h"
 #include "../includes/exit.h"
-	#include <stdio.h>
 
 t_po_sons_in_top	*find_room_in_po_sons (t_tree_of_paths *node, t_room *room)
 {
@@ -14,7 +13,6 @@ t_po_sons_in_top	*find_room_in_po_sons (t_tree_of_paths *node, t_room *room)
 		temps = node->possible_sons;	
 	while (temps && temps->this_son)
 	{
-//printf ("frip: room %s found\n", temps->this_son->name);
 		if (temps->this_son == room)
 			return (temps);
 		temps = temps->next_son;
@@ -35,7 +33,6 @@ t_tree_of_paths		*find_room_in_sons (t_tree_of_paths *node, t_room *room)
 			return (temps->this_son);
 		temps = temps->next_son;
 	}
-//printf ("room %s, no son\n", room->name);
 	return (NULL);
 }
 

@@ -2,7 +2,7 @@
 # define PATHS_H
 
 # define NB_OF_PATHS 600000
-# define NB_OF_TESTS 1000000
+# define NB_OF_TESTS 100000000
 
 # include "../includes/struct.h"
 
@@ -21,4 +21,3 @@ t_tree_of_paths	*fill_node_of_top (t_tree_of_paths **ato_fill, t_room *room,
 					t_tree_of_paths *parent);
 
 #endif
-
