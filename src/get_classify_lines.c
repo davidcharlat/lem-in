@@ -21,6 +21,7 @@ int		is_tunnel(char *line, t_sorttree *tree)
 		line[pos] = '-';
 		return (1);
 	}
+	line[pos] = '-';
 	return (0);
 }
 

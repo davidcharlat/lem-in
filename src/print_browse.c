@@ -18,3 +18,25 @@ void	browse_nei (t_neighbour *nei, void *p, void*(*f)(t_neighbour*, void*))
 		nei = nei->next;
 	}
 }
+
+void	*browse_tree (t_sorttree *tree, void *p, void*(*f)(t_sorttree*, void*))
+{
+	int 	i;
+	void	*ptr;
+	
+	i = -1;
+	if (tree)
+	{
+		while (i++ < NUMBEROFLEAVES - 1)
+		{
+			if (tree->next[i])
+				ptr = (browse_tree(tree->next[i], p, f));
+		}
+		if ((tree->cont).sroom)
+			return (f(tree, p));
+		if (tree->level == 0)
+			return ((void*)tree);
+		return (ptr);
+	}
+	return ((void*)tree);
+}
