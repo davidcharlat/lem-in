@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include "../includes/struct.h"
 #include "../includes/exit.h"
-	#include <stdio.h>
 
 t_room	**create_ant_room_array (int nb_of_ants, t_room *start)
 {

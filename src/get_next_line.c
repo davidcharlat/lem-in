@@ -3,7 +3,6 @@
 #include "../includes/exit.h"
 #include "../includes/libft.h"
 #include "../includes/get_next_line.h"
-	#include<stdio.h>
 
 static void	end_of_fct_export (t_list_gnl **root, char *newline, int done, int todo)
 {

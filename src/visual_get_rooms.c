@@ -7,20 +7,17 @@
 #include "../includes/struct.h"
 #include "../includes/visual.h"
 #include "../includes/visual_struct.h"
-	#include <stdio.h>
 
 static void	reajust_max_coord (t_room *room, int (*max_coord)[4])
 {
-printf ("start reajust; max coord values: %d, %d, %d, %d\n", (*max_coord)[0], (*max_coord)[1], (*max_coord)[2], (*max_coord)[3]);
-	if ((*max_coord)[0] == 2147483647 || room->XCOORD < (*max_coord)[0])
-		(*max_coord)[0] = room->XCOORD;
-	if ((*max_coord)[1] == 2147483647 || room->XCOORD > (*max_coord)[1])
-		(*max_coord)[1] = room->XCOORD;
-	if ((*max_coord)[2] == 2147483647 || room->YCOORD < (*max_coord)[2])
-		(*max_coord)[2] = room->YCOORD;
-	if ((*max_coord)[3] == 2147483647 || room->YCOORD > (*max_coord)[3])
-		(*max_coord)[3] = room->YCOORD;
-printf ("end; max coord values: %d, %d, %d, %d\n", (*max_coord)[0], (*max_coord)[1], (*max_coord)[2], (*max_coord)[3]);
+	if ((*max_coord)[0] == 2147483647 || room->XCOORD < (*max_coord)[0] + 1)
+		(*max_coord)[0] = room->XCOORD - 1;
+	if ((*max_coord)[1] == 2147483647 || room->XCOORD > (*max_coord)[1] - 1)
+		(*max_coord)[1] = room->XCOORD + 1;
+	if ((*max_coord)[2] == 2147483647 || room->YCOORD < (*max_coord)[2] + 1)
+		(*max_coord)[2] = room->YCOORD - 1;
+	if ((*max_coord)[3] == 2147483647 || room->YCOORD > (*max_coord)[3] - 1)
+		(*max_coord)[3] = room->YCOORD + 1;
 }
 
 static void	add_true_room (char *line, int is_start_end,

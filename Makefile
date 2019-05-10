@@ -6,7 +6,7 @@ ODIR = ./bin/
 
 TESTDIR = ./.test/
 
-SRCFILES =	exit.c \
+PSCRFILES = exit.c \
 			free.c \
 			get_classify_lines.c \
 			get_find_room.c \
@@ -16,7 +16,6 @@ SRCFILES =	exit.c \
 			get_rooms.c \
 			get_sorttree.c \
 			get_tunnels.c \
-			main.c \
 			paths_add_1path.c \
 			paths_check_rooms_in_paths.c \
 			paths_copy_lop.c \
@@ -28,6 +27,20 @@ SRCFILES =	exit.c \
 			print.c \
 			print_browse.c \
 			print_set_values.c
+
+SRCFILES =	$(PSCRFILES) \
+			main.c \
+			
+VSRCFILES =	$(PSCRFILES) \
+			visual_create_ant_room_array.c \
+			visual_find_rooms.c \
+			visual_get_nb_of_ants.c \
+			visual_get_rooms.c \
+			visual_get_tunnels.c \
+			visual_is_move.c \
+			visual_make_ants_move.c \
+			visual_visu-hex.c \
+			visual_window.c
 			
 LIBS = 		./lib/libft.a
 			
@@ -40,38 +53,6 @@ VSRCPATH = ./src/
 VODIR = ./bin/
 
 VTESTDIR = ./.test/
-
-VSRCFILES =	exit.c \
-			free.c \
-			get_classify_lines.c \
-			get_find_room.c \
-			get_nb_of_ants.c \
-			get_next_line.c \
-			get_print_next_line.c \
-			get_rooms.c \
-			get_sorttree.c \
-			get_tunnels.c \
-			paths_add_1path.c \
-			paths_check_rooms_in_paths.c \
-			paths_copy_lop.c \
-			paths_fill_top.c \
-			paths_find_next_room.c \
-			paths_find_paths.c \
-			paths_find_rooms.c \
-			paths_test_paths.c \
-			print.c \
-			print_browse.c \
-			print_set_values.c \
-			visual_create_ant_room_array.c \
-			visual_find_rooms.c \
-			visual_get_nb_of_ants.c \
-			visual_get_rooms.c \
-			visual_get_tunnels.c \
-			visual_is_move.c \
-			visual_make_ants_move.c \
-			visual_visu-hex.c \
-			visual_window.c
-			
 			
 VLIBS =	./lib/libft.a \
 		./lib/libSDL.a

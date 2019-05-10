@@ -4,7 +4,6 @@
 #include "../includes/print.h"
 #include "../includes/visual.h"
 #include "../includes/visual_sdl.h"
-	#include <stdio.h>
 	
 void	sdldraw_tunnel (t_room *r1, t_room *r2, void *ptr)
 {
@@ -27,7 +26,6 @@ void	sdldraw_tunnel (t_room *r1, t_room *r2, void *ptr)
 		fprintf (stderr, "SDL_creatergb");
 		exit (EXIT_FAILURE);
 	}
-//printf ("broswe tree:  tunnel from %s to %s \n", r1->name, r2->name );
 	SDL_FillRect (sdltunnel, NULL, SDL_MapRGB(window->format, 31, 31, 31));
 	while (c[0]--)
 	{
@@ -71,7 +69,6 @@ void	*sdlprint_room (t_sorttree *tree, void *ptr)
 	}
 	if (tree && (tree->cont).sroom)
 	{
-//printf ("broswe tree: room %s\n", (tree->cont).sroom->name);
 		SDL_FillRect (sdlroom, NULL, SDL_MapRGB(window->format, 195, 195, 195));
 		position.x = (((tree->cont).sroom->XCOORD) - max_coord[0]) * (WIN_WIDTH - ROOM_WIDTH) / (max_coord[1] - max_coord[0]);
 		position.y = (((tree->cont).sroom->YCOORD) - max_coord[2]) * (WIN_HEIGHT- ROOM_HEIGHT) / (max_coord[3] - max_coord[2]);
@@ -97,7 +94,7 @@ void	open_window (SDL_Surface **awindow)
 	SDL_WM_SetCaption("Lem_in visual, press any key to make ants move", NULL);
 }
 
-void	print_anthill (SDL_Surface *window, t_sorttree *tree, t_room *start_end[2], int max_coord[4]) //affiche les couloir et les salles dans window
+void	print_anthill (SDL_Surface *window, t_sorttree *tree, t_room *start_end[2], int max_coord[4])
 {
 	SDL_Surface	*sdlroom;
 	SDL_Rect	position;
@@ -115,12 +112,10 @@ void	print_anthill (SDL_Surface *window, t_sorttree *tree, t_room *start_end[2],
 	SDL_FillRect (sdlroom, NULL, SDL_MapRGB(window->format, 0, 255, 0));
 	position.x = ((start_end[0]->XCOORD) - max_coord[0]) * (WIN_WIDTH - ROOM_WIDTH) / (max_coord[1] - max_coord[0]);
 	position.y = ((start_end[0]->YCOORD) - max_coord[2]) * (WIN_HEIGHT- ROOM_HEIGHT) / (max_coord[3] - max_coord[2]);
-printf ("room 0: %s x:%d, y:%d\n", start_end[0]->name, position.x, position.y);
 	SDL_BlitSurface(sdlroom, NULL, window, &position);
 	SDL_FillRect (sdlroom, NULL, SDL_MapRGB(window->format, 255, 0, 0));
 	position.x = ((start_end[1]->XCOORD) - max_coord[0]) * (WIN_WIDTH - ROOM_WIDTH) / (max_coord[1] - max_coord[0]);
 	position.y = ((start_end[1]->YCOORD) - max_coord[2]) * (WIN_HEIGHT- ROOM_HEIGHT) / (max_coord[3] - max_coord[2]);
-printf ("room 0: %s x:%d, y:%d\n", start_end[1]->name, position.x, position.y);
 	SDL_BlitSurface(sdlroom, NULL, window, &position);
 	SDL_Flip (window);
 	SDL_FreeSurface(sdlroom);

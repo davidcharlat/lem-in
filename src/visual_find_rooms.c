@@ -3,7 +3,6 @@
 #include "../includes/struct.h"
 #include "../includes/visual_struct.h"
 #include "../includes/exit.h"
-	#include <stdio.h>
 
 static void	put_find_room (t_sorttree *tree, t_room **astart, int sts)
 {
@@ -31,7 +30,6 @@ void		visual_find_room (t_sorttree *tree,
 				t_room **aroom, int status)
 {
 	*aroom = NULL;
-printf ("visual find room\n");
 	put_find_room (tree, aroom, status);
 	if (!(*aroom))	
 		exit_msg ((char*)("ERROR"), 5);

@@ -5,7 +5,6 @@
 #include "../includes/struct.h"
 #include "../includes/visual.h"
 #include "../includes/get_next_line.h"
-	#include <stdio.h>
 
 static int	find_tunnel (t_room *room1, t_room *room2)
 {
@@ -61,23 +60,16 @@ void	visual_get_tunnels(char **aline, t_sorttree **atree)
 		r[1] = find_room (*atree, (*aline) + pos + 1, len - pos - 1);
 		if ((*aline)[0] != '#' && r[0] != r[1] && !find_tunnel(r[0], r[1]))
 		{
-printf("creating TUNNEL\n");
 			add_1tunnel (r[0], r[1]);
 			add_1tunnel (r[1], r[0]);
 		}
 		free (*aline);
 		get_next_line_lemin (0, aline);
-printf ("new line: %s\n", *aline);
 	}
 	while (!is_move(*aline, *atree))
 	{
-printf ("line not move: %s\n", *aline);
 		free (*aline);
-		if (!get_next_line_lemin (0, aline))
-{printf("not get next line\n");			
+		if (!get_next_line_lemin (0, aline))	
 			return;
-}
-printf ("new line not move end: %s\n", *aline);
 	}
-//	free (*aline); pense à liberer line qd c'est fini'
 }
