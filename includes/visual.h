@@ -18,10 +18,10 @@
 
 void	*sdlprint_room (t_sorttree *tree, void *ptr);
 void	sdldraw_tunnel (t_room *r1, t_room *r2, void *ptr);
-void 	make_ants_move (SDL_Surface *window, t_sorttree *tree, char *line,
+void 	make_ants_move (SDL_Window *window, t_sorttree *tree, char *line,
 			t_room **ant_room_array, int max_coord[4], t_room *start_end[2], int nb_of_ants);
-void	open_window (SDL_Surface **awindow);
-void	print_anthill (SDL_Surface *window, t_sorttree *tree,
+void	open_window (SDL_Window **awindow);
+void	print_anthill (SDL_Window *window, t_sorttree *tree,
 			t_room *start_end[2], int max_coord[4]);
 t_room	**create_ant_room_array (int nb_of_ants, t_room *start);
 int		is_move (char *line, t_sorttree *tree);

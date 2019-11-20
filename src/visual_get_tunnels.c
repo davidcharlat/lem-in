@@ -55,7 +55,7 @@ void	visual_get_tunnels(char **aline, t_sorttree **atree)
 		len = ft_strlen(*aline);
 		pos = len;
 		while (--pos > 0 && (*aline)[pos] != '-');
-			(*aline)[pos] = 0;
+		(*aline)[pos] = 0;
 		r[0] = find_room (*atree, *aline, pos);
 		r[1] = find_room (*atree, (*aline) + pos + 1, len - pos - 1);
 		if ((*aline)[0] != '#' && r[0] != r[1] && !find_tunnel(r[0], r[1]))

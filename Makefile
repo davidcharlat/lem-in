@@ -54,10 +54,9 @@ VODIR = ./bin/
 
 VTESTDIR = ./.test/
 			
-VLIBS =	./lib/libft.a \
-		./lib/libSDL.a
+VLIBS =	./lib/libft.a ./lib/libSDL2.a -lm -ldl -lpthread -lrt 
 			
-VFLAGS = -Wall -Wextra -Werror
+VFLAGS = -Wall -Wextra
 
 OBJS = $(addprefix $(ODIR), $(SRCFILES:.c=.o))
 
